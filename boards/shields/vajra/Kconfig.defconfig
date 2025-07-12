@@ -1,6 +1,6 @@
 if SHIELD_VAJRA
 
 config ZMK_KEYBOARD_NAME
-	defaut "Vajra"
+    default "Vajra"
 
-endif		
+endif
