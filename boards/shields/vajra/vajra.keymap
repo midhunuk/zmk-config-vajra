@@ -8,9 +8,9 @@
 
 		default_layer {
 			bindings = <
-				&kp KP_07  &kp KP_08  &mo 1
-				&kp KP_04  &kp KP_05  &kp KP_06 
-				&kp KP_01  &kp KP_02  &kp KP_03 
+				&kp W  &kp E  &mo 1
+				&kp S  &kp D  &kp F 
+				&kp X  &kp C  &kp V 
 			>;
 		};
 		bt_layer {
