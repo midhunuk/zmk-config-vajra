@@ -6,24 +6,11 @@ config ZMK_KEYBOARD_NAME
 config ZMK_BLE
     default y
 
-config ZMK_BLE_PERIPHERAL
-    default y
-
 config BT
     default y
 
-config BT_PERIPHERAL
-    default y
-
-config BT_HIDS
-    default y
-
-config BT_DEVICE_NAME
-    string
-    default "Vajra"  
-
 config BT_MAX_CONN
     int
-    default 1
+    default 3
 
 endif
