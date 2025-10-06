@@ -46,5 +46,6 @@
         	width = <128>;
         	height = <64>;
         	label = "SSD1306";
+		};
 	};
 };
