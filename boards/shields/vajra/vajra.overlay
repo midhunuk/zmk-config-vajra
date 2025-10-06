@@ -35,4 +35,16 @@
         	RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4)
         >;
     };
+	&i2c0 {
+    	status = "okay";
+ 		clock-frequency = <I2C_BITRATE_STANDARD>;  // 100 kHz
+    	sda-pin = <4>; 
+    	scl-pin = <5>;
+		ssd1306@3c {
+        	compatible = "solomon,ssd1306fb";
+        	reg = <0x3C>;
+        	width = <128>;
+        	height = <64>;
+        	label = "SSD1306";
+	};
 };
