@@ -63,9 +63,16 @@
     pinctrl-names = "default", "sleep";
 	ssd1306@3c {
         compatible = "solomon,ssd1306fb";
+        label = "SSD1306";
         reg = <0x3C>;
+
         width = <128>;
         height = <64>;
-        label = "SSD1306";
+
+        page-offset = <0>;
+        display-offset = <0>;
+        multiplex-ratio = <63>;
+        prechargep = <0x22>;
+		segment-offset = <0>;
 	};
 };
