@@ -4,6 +4,7 @@
     chosen {
         zmk,kscan = &default_kscan;
 		zmk,matrix_transform = &default_transform;
+		zephyr,display = &oled;
     };
 
     default_kscan: kscan {
@@ -41,27 +42,29 @@
 &pinctrl {
     i2c0_default: i2c0_default {
         group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 4)>,
-                    <NRF_PSEL(TWIM_SCL, 0, 5)>;
+            psels = <NRF_PSEL(TWIM_SDA, 0, 7)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 27)>;
+			bias-pull-up;
         };
     };
 
     i2c0_sleep: i2c0_sleep {
         group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 4)>,
-                    <NRF_PSEL(TWIM_SCL, 0, 5)>;
+            psels = <NRF_PSEL(TWIM_SDA, 0, 7)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 27)>;
             low-power-enable;
         };
     };
 };
 
 &i2c0 {
+	compatible = "nordic,nrf-twim";
     status = "okay";
  	clock-frequency = <I2C_BITRATE_STANDARD>;  // 100 kHz
 	pinctrl-0 = <&i2c0_default>;
 	pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
-	ssd1306@3c {
+	oled: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
         label = "SSD1306";
         reg = <0x3C>;

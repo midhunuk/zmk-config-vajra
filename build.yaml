@@ -21,3 +21,6 @@
 include:
   - board: seeeduino_xiao_ble
     shield: vajra
+    snippet: zmk-usb-logging
+    features:
+      - display
