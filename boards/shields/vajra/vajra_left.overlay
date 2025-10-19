@@ -1,6 +1,6 @@
-#include "corne.dtsi"
+#include "vajra.dtsi"
 
-&kscan0 {
+&default_kscan {
     col-gpios = 
         <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
         <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
