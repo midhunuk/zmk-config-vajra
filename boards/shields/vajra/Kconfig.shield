@@ -1,2 +1,5 @@
-config SHIELD_VAJRA
-	def_bool $(shields_list_contains, vajra)
+config SHIELD_VAJRA_LEFT
+	def_bool $(shields_list_contains, vajra_left)
+
+config SHIELD_VAJRA_RIGHT
+	def_bool $(shields_list_contains, vajra_right)

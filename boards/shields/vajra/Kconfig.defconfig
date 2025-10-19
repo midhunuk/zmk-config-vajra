@@ -1,26 +1,16 @@
-if SHIELD_VAJRA
+if SHIELD_VAJRA_LEFT
 
 config ZMK_KEYBOARD_NAME
     default "Vajra"
 
-config ZMK_BLE
+config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
-config BT
+endif
+
+if SHIELD_VAJRA_LEFT || SHIELD_VAJRA_RIGHT
+
+config ZMK_SPLIT
     default y
-
-config BT_MAX_CONN
-    int
-    default 3
-
-if ZMK_DISPLAY
-
-config I2C
-    default y
-
-config SSD1306
-    default y
-
-endif # ZMK_DISPLAY
 
 endif
