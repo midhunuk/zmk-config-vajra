@@ -23,7 +23,6 @@ include:
     shield: vajra_left
     features:
       - display
-    snippet: zmk-usb-logging
 
   - board: seeeduino_xiao_ble
     shield: vajra_right
