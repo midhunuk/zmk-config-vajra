@@ -3,7 +3,7 @@ id: vajra
 name: Vajra
 type: shield
 url: https://somepage.com
-requires: [xiaoseed]
+requires: [seeeduino_xiao_nrf52840]
 exposes: [i2c_oled]
 features:
   - keys
