@@ -8,12 +8,11 @@ config ZMK_SPLIT_ROLE_CENTRAL
 
 endif
 
-
 if SHIELD_VAJRA_RIGHT
-  config ZMK_SPLIT_ROLE_PERIPHERAL
-      default y
+	config ZMK_SPLIT_ROLE_PERIPHERAL
+    	bool "Peripheral side of split keyboard"
+    	default y
 endif
-
 
 if SHIELD_VAJRA_LEFT || SHIELD_VAJRA_RIGHT
 
@@ -22,6 +21,5 @@ config ZMK_SPLIT
 
 config ZMK_SPLIT_BLE
 	default y
-
 
 endif
