@@ -3,34 +3,49 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
-	keymap {
+    	keymap {
 		compatible = "zmk,keymap";
 
-		                default_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-                        bindings = <
-   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    
-   &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI 
-   &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH 
-                  &tog 1 &kp TAB &kp SPACE  &kp ENTER &kp BSPC &tog 2
-                        >;
-                };
-                lower_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 
-   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans 
-   &bt BT_CLR   &bootloader  &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans 
-                                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
-                        >;
-                };
+        default_layer {
+            bindings = <
+                &mt ESC Q     &kp W         &kp E         &kp R         &kp T         &kp Y   &kp U         &kp I         &kp O         &kp P
+                &kp A         &mt LALT S    &mt LSFT D    &mt LCTL F    &kp G         &kp H   &mt RCTL J    &mt RSFT K    &mt LALT L    &kp SEMI
+                &mt LGUI Z    &kp X         &kp C         &kp V         &kp B         &kp N   &kp M         &kp COMMA     &kp DOT       &mt RGUI SLASH
+                              &kp SPACE     &lt 3 TAB     &tog 1                              &tog 2        &kp BSPC      &kp ENTER     
+            >;
+        };
+        num_layer {
+            bindings = <
+                &kp F1      &kp F2        &kp F3        &kp F4        &kp F5        &kp F8    &kp F9      &kp F10     &kp F11     &kp F12
+                &kp N1      &mt LALT N2   &mt LSFT N3   &mt LCTL N4   &kp N5        &kp N6    &kp N7      &kp N8      &kp N9      &kp N0
+                &kp LGUI    &none         &kp MINUS     &kp PLUS      &kp EQUAL     &kp F6    &kp F7      &kp COMMA   &kp DOT     &kp RGUI
+                            &kp SPACE     &lt 3 TAB     &tog 0                                &tog 2      &kp BSPC    &kp ENTER  
+            >;
+        };
+        sym_layer {
+            bindings = <
+                &kp EXCL   &kp AT     &kp HASH    &kp DLLR    &kp PERCENT   &kp CARET   &kp AMPS   &kp ASTRK   &kp LPAR    &kp RPAR
+                &kp UNDER  &kp LT     &kp LBKT    &kp LBRC    &kp LPAR      &kp RPAR    &kp RBRC   &kp RBKT    &kp GT      &kp COLON
+                &kp GRAVE  &kp TILDE  &kp MINUS   &kp PLUS    &kp EQUAL     &kp DQT     &kp SQT    &kp PIPE    &kp BSLH    &kp SLASH
+                           &kp SPACE  &lt 3 TAB   &tog 1                                &tog 0     &kp BSPC    &kp ENTER  
+            >;
+        };
+        nav_layer {
+            bindings = <
+                &none     &none     &none     &none     &tog 4           &kp HOME   &kp PG_DN   &kp PG_UP   &kp END     &kp INS
+                &kp LGUI  &kp LALT  &kp LSFT  &kp LCTL  &none           &kp LEFT   &kp DOWN    &kp UP      &kp RIGHT   &kp DEL
+                &kp LGUI  &none     &none     &none     &none           &none      &none       &none       &none       &none
+                          &kp SPACE &none     &kp ESC                              &none       &none       &none 
+            >;
+        };
+
+        bluetooth_layer {
+            bindings = <
+                &none        &none        &none        &none        &none          &none     &none     &none     &none      &none  
+                &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &none     &none     &none     &none      &none  
+                &bt BT_CLR   &bootloader  &trans       &trans       &trans         &none     &none     &none     &none      &none 
+                                          &kp SPACE    &kp SPACE    &tog 0                             &tog 0    &kp SPACE  &kp SPACE
+            >;  
+        };
 	};
 };
